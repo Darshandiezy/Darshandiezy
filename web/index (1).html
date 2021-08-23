@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Darshan Slide</title>
+    <style type="text/css">
+        body {
+            margin: auto;
+            background: #e6e6e6;
+            width: 100%;
+        }
+        
+        .showSlide {
+            display: none;
+        }
+        
+        .showSlide img {
+            width: 100%;
+        }
+        
+        .slidercontainer {
+            width: 100%;
+            /* margin-top: 15px; */
+            /* height: auto; */
+        }
+        
+        .left,
+        .right {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 88px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+        
+        .right {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .left:hover,
+        .right:hover {
+            background-color: rgba(115, 115, 115, 0.8);
+        }
+        
+        .content {
+            color: #eff5d4;
+            font-size: 30px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        .active {
+            background-color: #717171;
+        }
+        /* Fading animation */
+        
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fade {
+            from {
+                opacity: 0.4;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .img1 {
+            margin-left: 50px;
+            cursor: pointer;
+            top: 6px;
+        }
+        
+        .main {
+            margin: auto;
+            position: fixed;
+            width: 100%;
+            display: inline;
+            /* border-radius: 10px; */
+            /* border: 2px solid gray; */
+            line-height: 1.875em;
+            background-color: #181a1d!important;
+            cursor: pointer;
+        }
+        
+        .button {
+            background-color: blue;
+            border-radius: 10px;
+            border: 2px solid gray;
+            padding: 8px;
+            color: white;
+            cursor: pointer;
+            font-size: 15px;
+            position: absolute;
+        }
+        
+        .dropdownBtn {
+            font-size: 15px;
+            cursor: pointer;
+            color: #aaa;
+            padding: 5px;
+            position: relative;
+            left: 120px;
+            top: -5px;
+            text-decoration: none;
+        }
+        
+        .dropdownBtn:hover {
+            text-decoration: underline;
+            color: whitesmoke;
+            cursor: pointer;
+        }
+        
+        .high {
+            display: inline;
+            position: absolute;
+        }
+        
+        .lang {
+            position: relative;
+            /* left: 1000px; */
+            top: 20px;
+        }
+        
+        .highimg {
+            position: relative;
+            display: inline;
+            left: 25px;
+        }
+        
+        .imagesize {
+            padding-right: 23px;
+            padding: 10px;
+            width: 300px;
+            height: 200px;
+            transition: transform 1s;
+            opacity: 0.5;
+        }
+        
+        .imagesize:hover {
+            transform: scale(1.1);
+            background-color: #000;
+            border-radius: 30px;
+            opacity: 1;
+        }
+        
+        .list-unstyled {
+            color: white;
+            font-size: 18px;
+        }
+        
+        .link {
+            text-decoration: none;
+            color: grey
+        }
+        
+        .thirdview {
+            left: 50px;
+            position: absolute;
+        }
+        
+        .legal {
+            font-size: 18px;
+        }
+        
+        .legalcss {
+            color: white;
+        }
+        
+        .social {
+            padding: 10px;
+        }
+        
+        .view1 {
+            width: 400px;
+            height: 400px;
+            top: 50px;
+            left: 100px;
+            position: fixed;
+            display: block;
+            display: none;
+            /* opacity: 0.3; */
+        }
+        
+        .imagesize1 {
+            padding-right: 23px;
+            padding: 10px;
+            padding-top: 70px;
+            padding-left: 30px;
+            width: 200px;
+            height: 200px;
+            transition: transform 1s;
+        }
+        
+        .channels {
+            position: absolute;
+            left: 500px;
+            color: white;
+            font-size: 25px;
+            padding: 10px;
+            top: 20px;
+        }
+        
+        .channels1 {
+            padding: 10px;
+        }
+        
+        .vedio1 {
+            transition: transform 1s;
+            border-radius: 5px;
+            margin-left: 25px;
+        }
+        
+        .vedio1:hover {
+            transform: scale(1.1);
+            background-color: #000;
+            border-radius: 30px;
+            opacity: 1;
+        }
+        
+        .lang {
+            margin-left: 25px;
+            width: 180px;
+            height: 170px;
+            padding: -15px;
+            border-radius: 25px;
+            transition: transform 1s;
+        }
+        
+        .lang:hover {
+            transform: scale(1.1);
+            background-color: #000;
+            border-radius: 30px;
+            opacity: 1;
+        }
+        
+        .img1 {
+            margin-left: 25px;
+            margin-right: 25px;
+        }
+        
+        .img4 {
+            width: 9.3%;
+            height: 30%;
+            transition: transform 2s;
+            opacity: 0.7;
+        }
+        
+        .img4:hover {
+            transform: scale(1.5);
+            background-color: #000;
+            opacity: 1;
+            border-radius: 8px;
+        }
+        
+        .lang1 {
+            left: 990px;
+            position: relative;
+            bottom: 140px;
+            font-size: 25px;
+        }
+        #first{
+            margin:0px,40px;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="font-family: Lato!important;
+background-color: #181a1d!important;
+color: #fff!important;
+font-size: 16px!important;
+opacity: 1;">
+    <div>
+        <div class="main">
+            <img class="img1" src="./sony-liv.png" alt="" />
+            <button class="button" type="button" value="Subscribe"><b>Subscribe</b></button>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974">|</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974" onmouseover="nan()"   onmouseout="normalImg(this)">SL vs IND</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974"  onmouseover="nan()"  onmouseout="normalImg(this)">IND vs ENG</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974"  onmouseover="nan()"  onmouseout="normalImg(this)">IND VS PAK</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974"  onmouseover="sign()"  onmouseout="normal(this)">PAK VS ENG</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974"  onmouseover="nan()"  onmouseout="normalImg(this)"> SF VS ING</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974"  onmouseover="nan()"  onmouseout="normalImg(this)">IND VS BANG</a></span>
+            <span><a class="dropdownBtn " href="/custompage/sl-vs-ind-59974"  onmouseover="sign()"  onmouseout="normal(this)">IND VS SF</a></span>
+            <img class="imgsearch" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFwnahl_yxxIxlyL2WflWGfsPqv_CBTFJDnw&usqp=CAU" alt="" />
+            <img class="Accountlog" onmouseover="sign()" onmouseout="normal(this)" src="https://www.sonyliv.com/assets/images/user_default_profile.png" alt="">
+        </div>
+        <br><br><br>
+        <div class="slidercontainer" onmouseout="normalImg()" onmouseout="normal()" >
+            <div class="showSlide fade">
+                <img src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,q_auto:low,w_1600/https://origin-staticv2.sonyliv.com/masthead_foreground/INDTourOfENG1_GOB_Foreground_2.png" />
+                <div class="content"></div>
+            </div>
+            <div class="showSlide fade">
+                <img src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,q_auto:low,w_1366/https://origin-staticv2.sonyliv.com/masthead_foreground/5588907101001.png">
+                <div class="content"></div>
+            </div>
+
+            <div class="showSlide fade">
+                <img src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,q_auto:low,w_1366/https://origin-staticv2.sonyliv.com/masthead_foreground/Chutzpah-Character_Foreground.png" />
+                <div class="content"></div>
+            </div>
+            <div class="showSlide fade">
+                <img src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,q_auto:low,w_1366/https://origin-staticv2.sonyliv.com/masthead_foreground/SD4_24_July_foreground.png" />
+                <div class="content"></div>
+            </div>
+            <div>
+                <img class="divicon" src="https://www.sonyliv.com/assets/images/watchList.svg" alt="">
+                <p class="divicon1">Add to my List</p>
+                <button class="divicon3" type="button">PlayNow</button>
+                <img class="divicon4" src="https://www.sonyliv.com/assets/images/share.svg" alt="">
+                <p class="divicon2">
+                    Share
+                </p>
+            </div>
+            <!-- Navigation arrows -->
+            <a class="left" onclick="nextSlide(-1)">❮</a>
+            <a class="right" onclick="nextSlide(1)">❯</a>
+
+
+            <div style="margin-left: 880px;background-color: transparent;color:whitesmoke;" class="view1" id="img" onmouseover="sign()">
+                <div>
+                    <h1>Sing in a Better Experince</h1>
+                </div>
+                <div>
+                    Subscribe Now
+                </div>
+                <div>
+                    Activate TV
+                </div>
+                <div>
+                    Connect Us
+                </div>
+
+            </div>
+            <div style="margin-left: 300px;background-color: transparent;color:whitesmoke;" class="view1" id="a" onmouseover="nan()">
+                <div>
+                    <h1>Welcome</h1>
+                </div>
+                <div>
+                    Subscribe Now
+                </div>
+                <div>
+                    Activate TV
+                </div>
+                <div>
+                    Connect Us
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="seconddiv" style="margin-left: 35px;margin-top: -130px;" onmouseout="normalImg()">
+            <div class="high">
+
+                <!-- <a style="color: whitesmoke;font-size: 25px;" class="high1"><b>Highlights</b</a> -->
+                <h1 style="bottom: 70px; position: relative; font-size: 45px;">Highlights</h1>
+                <button class="lang1">ENG | TAM | KAN</button>
+            </div>
+        </div>
+        <BR></BR><BR></BR>
+        <div class="highimg" id="slide">
+            
+            <img class="imagesize" src="./img/img2.jpg" alt="">
+            <img class="imagesize" src="./img/img3.jpg" alt="">
+            <img class="imagesize" src="./img/img4.jpg" alt="">
+
+
+        </div>
+        <div class="vedio">
+            <h2 style="margin-left: 25px;">Trending in Entertainment</h2>
+            <video class="vedio1" width="300" height="240" controls>
+                <source src="./d376edc9368a44a29558405e9807422e.mp4" type="video/mp4">
+                <!-- <source src="https://youtu.be/voZv9trgIv0" type="video/ogg"> -->
+              Your browser does not support the video tag.
+              </video>
+            <video class="vedio1" width="300" height="240" controls>
+                <source src="./9b0c16d492254e528ce963e405e110af.mp4" type="video/mp4">
+                <!-- <source src="movie.ogg" type="video/ogg"> -->
+              Your browser does not support the video tag.
+              </video>
+            <video class="vedio1" width="300" height="240" controls>
+                <source src="./79ca9cf472d74afea1be5307bfafe658.mp4" type="video/mp4">
+                <!-- <source src="movie.ogg" type="video/ogg"> -->
+              Your browser does not support the video tag.
+              </video>
+            <video class="vedio1" width="300" height="240" controls>
+                <source src="./496c73c974b94f9f842e8c522dc5c05a.mp4" type="video/mp4">
+                <!-- <source src="movie.ogg" type="video/ogg"> -->
+              Your browser does not support the video tag.
+              </video>
+        </div>
+        <div>
+            <h1 style="margin-left: 25px;">Watch in Your Language</h1>
+            <img class="lang" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_344,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Carousel_Landscape_Card/Hindi_lang_1x1.jpg" alt="">
+            <img class="lang" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_344,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Carousel_Landscape_Card/Eng_lang_1x1.jpg" alt="">
+            <img class="lang" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_344,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Carousel_Landscape_Card/Tamil_lang_1x1.jpg" alt="">
+            <img class="lang" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_344,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Carousel_Landscape_Card/Telugu_lang_1x1.jpg" alt="">
+            <img class="lang" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_344,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Carousel_Landscape_Card/Marathi_lang_1x1.jpg" alt="">
+        </div>
+        <br><br>
+        <div>
+            <img class="img1" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_170,q_auto:low,w_1259/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Cutout_Cards/PlanB_Web_1259x170_WN.png" alt="">
+        </div>
+        <div style="margin-left: 25px;">
+            <h2>Popular Movies</h2>
+
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4637722700001.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/filmistaan_11june_portrait_thumb.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4643867281001.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4643867281001.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/TKSS_Portrait_Thumb1.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4643867283001.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4645549591001.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/AnneBoleynS1_Portrait_Thumb.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/Monsterland_Portrait_Thumb.jpg" alt="">
+            <img class="img4" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/ADOWS2_Portrait_Thumb_5july.jpg" alt="">
+            <p id="first">movie</p>
+        </div>
+        <div class="card" class="col-md-3" style="margin: 25px;">
+            <!-- Slideshow container -->
+            <h1>Liv kids and Upcoming Movies</h1>
+            <div class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origindev-static.sonyliv.com/portrait_thumb/6031575212001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6038511911001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6038516149001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6038517057001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6025849193001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6025849193001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6031808809001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/5428579138001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6032499952001.jpg">
+                    <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6032196643001.jpg">
+                    <img class="fire" src="./img/img4.jpg">
+                </div>
+            </div>
+
+            <div class="mySlides fade">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/VAAZHL2_Portrait_Thumb_NewShow_rev1.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/PlanB_dated_portrait_thumb_rev.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/Chutzpah_Portrait_Thumb_Lang_NewShow.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/Thaen_16july_lang_portrait_thumb.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/AnneBoleynS1_Portrait_Thumb.jpg">
+                <img class="fire" src="./img/img1.jpg">
+                <img class="fire" src="./img/img2.jpg">
+                <img class="fire" src="./img/img3.jpg">
+                <img class="fire" src="./img/img4.jpg">
+                <img class="fire" src="./img/img4.jpg">
+                <img class="fire" src="./img/img4.jpg">
+            </div>
+
+            <div class="mySlides fade">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6032196643001.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/6032499952001.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4831317292001.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/4831317292001.jpg">
+                <img class="fire" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_494,q_auto:low,w_344/https://origin-staticv2.sonyliv.com/portrait_thumb/BBC_sQuiz_Game_1024x1471.jpg">
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div>
+            <img style="margin-left: 35px;" src="https://res.cloudinary.com/Sony-liv/image/fetch/c_fill,e_brightness:10,f_auto,fl_lossy,h_170,q_auto:low,w_1259/https://origin-staticv2.sonyliv.com/UI_icons/Multipurposecards/Cutout_Cards/Vaazh_15july_Web_1259x170.png"
+                alt="">
+        </div>
+
+        <div class="thirdview">
+            <p class="list-unstyled contentfont">Explore Shows: <span class="contentcss">SET Shows</span></a><a class="link" href="/custompage/sab-tv-shows-463"><span class="contentcss">| SAB TV Shows</span></a>
+                <a class="link" href="/custompage/marathi-tv-shows-559"><span class="contentcss">| Marathi TV Shows</span></a><a class="link" href="/listing/bengali-tv-shows-2240_7124"><span class="contentcss">| Bengali TV Shows</span></a><a class="link"
+                    href="/listing/english-tv-shows-35221_5135"><span class="contentcss">| English TV Shows</span></a></p>
+
+            <p class="list-unstyled contentfont">Shows by Genres: <span class="contentcss">Drama Shows</span></a><a class="link" href="/listing/comedy-shows-2240_8736"><span class="contentcss">| Comedy Shows</span></a><a class="link" href="/listing/thriller-shows-2240_8734"><span class="contentcss">| Thriller Shows</span></a>
+                <a class="link" href="/listing/romantic-shows-2240_8733"><span class="contentcss">| Romantic Shows</span></a>
+                <a class="link" href="/listing/reality-shows-2240_8732"><span class="contentcss">| Reality Shows</span></a>
+            </p>
+
+            <p class="list-unstyled contentfont">Movies by Language: <a class="link" href="/listing/hindi-movies-399_6844"><span class="contentcss">Hindi Movies</span></a><a class="link" href="/listing/english-movies-35221_6507"><span class="contentcss">| English Movies</span></a><a class="link"
+                    href="/listing/marathi-movies-399_6849"><span class="contentcss">| Marathi Movies</span></a></p>
+            <p class="list-unstyled contentfont">Movies by Genre: <a class="link" href="/listing/action-movies-399_9541"><span class="contentcss">Action Movies</span></a><a class="link" href="/listing/drama-movies-399_9544"><span class="contentcss">| Drama Movies</span></a>
+                <a class="link" href="/listing/romantic-movies-399_9538"><span class="contentcss">| Romantic Movies</span></a><a class="link" href="/listing/comedy-movies-399_9542"><span class="contentcss">| Comedy Movies</span></a>
+                <a class="link" href="/listing/horror-movies-399_9547"><span class="contentcss">| Horror Movies</span></a>
+            </p>
+
+            <p class="list-unstyled contentfont">Channels: <a class="link" href="/custompage/live-tv-532"><span class="contentcss">LIVE TV</span></a></p>
+            <p class="list-unstyled contentfont">Sports: <a class="link" href="/custompage/football-48083"><span class="contentcss">Football</span></a><a class="link" href="/custompage/cricket-48081"><span class="contentcss">| Cricket</span></a>
+                <a class="link" href="/custompage/wwe-35654"><span class="contentcss">| WWE</span></a><a class="link" href="/custompage/ufc-46765"><span class="contentcss">| UFC</span></a></p>
+
+            <p class="list-unstyled contentfont">Explore More: <a class="link" href="/custompage/shows-2240"><span class="contentcss">Shows</span></a><a class="link" href="/custompage/movies-399"><span class="contentcss">| Movies</span></a>
+                <a class="link" href="/custompage/sports-2245"><span class="contentcss">| Sports</span></a><a class="link" href="/custompage/live-tv-532"><span class="contentcss">| LIVE TV</span></a>
+                <a class="link" href="/custompage/premium-2264"><span class="contentcss">| Premium</span></a>
+            </p>
+
+
+
+            <p class="legal"><a class="link" href="/terms-of-use"><span class="legalcss">Terms of Use</span></a><a class="link" href="/privacy-policy"><span class="legalcss"><span><span class="dot1"> • </span>Privacy Policy</span></span></a>
+                <a class="link" href="/faqs"><span class="legalcss"><span><span class="dot1"> • </span>FAQs</span>
+                        </span>
+                    </a><a class="link" href="/customer-support"><span class="legalcss"><span><span class="dot1"> • </span>Contact Us</span></span></a>
+                <a class="link" href="https://advertisewithus.sonyliv.com" target="_blank"><span class="legalcss"><span><span class="dot1"> • </span>Advertise With Us</span>
+                        </span>
+                    </a>
+                <a class="link" href="/content-feedback"><span class="legalcss"><span><span class="dot1"> • </span>Content Redressal Mechanism</span>
+                        </span>
+                        </a><span class="legalcss"><span class="dot"> • </span>3.3.59</span>
+            </p>
+            <p class="legalcss legal">Social</p>
+            <div class="">
+                <img class="social" src="https://www.sonyliv.com/assets/images/linkedin.svg" alt="linkedin" width="37" height="37">
+                <img class="social" src="https://www.sonyliv.com/assets/images/instagram.svg" alt="linkedin" width="37" height="37">
+                <img class="social" src="https://www.sonyliv.com/assets/images/facebook.svg" alt="linkedin" width="37" height="37">
+                <img class="social" src="https://www.sonyliv.com/assets/images/twitter.svg" alt="linkedin" width="37" height="37">
+            </div>
+
+            <p class="link legal">© 2021 Sony Pictures Networks India Pvt. Ltd.</p>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
